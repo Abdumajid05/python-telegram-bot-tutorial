@@ -7,10 +7,12 @@ TOKEN = os.environ['TOKEN']
 
 
 def echo(update: Update, context):
-    print(update)
+    return(update['message']['text'])
 
-updater = Updater(token=TOKEN)
+def send_message(update: Update, context):
+    pass
 
+updater = Updater(TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
 dispatcher.add_handler(MessageHandler(filters=None, callback=echo))
